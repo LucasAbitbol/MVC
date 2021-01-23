@@ -16,7 +16,12 @@
             </div>
             <div class="column">
                 <label for="auteur">Auteur:</label>
-                <input type="text" th:field="*{auteur}" placeholder="Auteur du tableau"/>
+                <select th:field="*{auteur}" id="auteur">
+                    <option value="0 ">Pas d'auteur</option>
+                    <option th:each="a : ${auteur}"
+                            th:value="${a.id}"
+                            th:text="${a.nom}" />
+                </select>
                 <label for="support">Support:</label>
                 <input type="text" th:field="*{support}" placeholder="Support du tableau"/>
                 <label for="dimension">Dimension:</label>
